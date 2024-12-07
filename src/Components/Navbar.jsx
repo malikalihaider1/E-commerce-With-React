@@ -34,7 +34,6 @@ export default function Navbar() {
       </div>
 {/* desktop navbar */}
       <ul className="hidden md:flex gap-3">
-        //mobile
         {links.map((item, i) => (
           <li className={navLinkStyle} key={i}>
             <Link to={item.link}>{item.title}</Link>
