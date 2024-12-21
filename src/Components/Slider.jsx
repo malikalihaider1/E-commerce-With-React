@@ -14,7 +14,7 @@ export default function Slider() {
     <div>Slider
        <Swiper
       spaceBetween={50}
-      slidesPerView={4}
+      slidesPerView={3}
       modules={[Navigation,Pagination,Scrollbar,Autoplay]}
       autoplay={{delay:2500, pauseOnMouseEnter: true}}
       pagination={{ clickable: true}}
