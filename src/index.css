@@ -13,7 +13,24 @@
     margin-left: auto;
     margin-right: auto;
     max-width:1000px;
+    padding: 50px;
 }
+.S_Underline {
+    @apply after:absolute after:bottom-2 after:left-[2px] after:h-0.5 after:w-0 after:transition-all after:duration-[400ms] after:content-[''];
+  }
+
+.S_Underline:after {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 2px;
+    height: 0.125rem;
+    width: 0;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.4s;
+    --tw-content: "";
+    content: var(--tw-content);
+  }
 
 .my-custom-class {
     border-radius: 50%;
