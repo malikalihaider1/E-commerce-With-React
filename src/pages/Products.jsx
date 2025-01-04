@@ -21,13 +21,7 @@ export default function Products() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const searchProducts = () => {
-    // const result = products?.filter((item) => {
-    //   return item.rating >= 4 && item.price > 50;
-    // });
-
-    // const result = products?.sort((a,b)=>{
-    //   return b.price - a.price
-    // })
+    
 
     const result = products?.filter((item) => {
       return item.title.toLowerCase().includes(searchTerm);
