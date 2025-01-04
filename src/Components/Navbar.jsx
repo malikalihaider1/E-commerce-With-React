@@ -23,8 +23,8 @@ export default function Navbar() {
 
   return (
     <div className="container-x h-28 shadow-md relative flex justify-between items-center">
-      <img src={text} className="hidden md:block w-72 h-72" alt="Text" />
-      <img src={truck} className="block md:hidden w-40 h-40" alt="Truck" />
+      <img src={text} className="hidden md:block w-72 " alt="Text" />
+      <img src={truck} className="block md:hidden w-[95px]" alt="Truck" />
 
       <div className="w-60 px-2 h-10 rounded centre bg-[#f5f5f5]">
         <input

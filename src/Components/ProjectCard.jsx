@@ -1,37 +1,47 @@
 import img from "../assets/images/game.png";
-export default function ProductCard() {
+import ReactStars from "react-stars";
+
+export default function ProductCard(Props) {
+  const discountPrice = (
+    Props.price -
+    Props.discountPercentage * (Props.price / 100)
+  ).toFixed(2);
+  console.log("discountPrice", discountPrice);
+
   return (
-    <div className=" border-2 group flex gap-4 flex-col relative w-64 h-[350px] bg-[#f5f5f5]">
-      <div className="discount absolute top-3 left-3 bg bg-primary w-14 h-6 rounded flex items-center justify-center text-white text-xs">
+    <div className="group p-3 drop-shadow-md border-2 flex gap-4 flex-col relative bg-[#F5F5F5] w-64 min-h-[350px]">
+      <div className="discount absolute top-3 left-3 bg-primary w-14 h-6 rounded flex items-center text-xs justify-center text-white ">
         -40%
       </div>
-      <button
-        type="submit"
-        name="add"
-        data-btn-addtocart=""
-        data-available=""
-        class="product-form__submit button button--primary an-"
-        id="product-add-to-cart"
-        docapp-data-protected="no-id"
-      >
-        Add to cart
-      </button>
+
       <div className="">
         <img
-          src={img}
+          src={Props.image}
           alt="product img"
-          className="m-auto group-hover:scale-110 transition-all duration-1000"
+          className="m-auto group-hover:scale-110 transition-all duration-300"
         />
       </div>
-      {/* <div> */}
-      <h3 className="font-medium text-lg group-hover:text-primary transition-all duration-1000">
-        HAVIT HV-G92 Gamepad
+
+      <h3 className="font-medium group-hover:text-primary transition-all duration-300">
+        {Props.name}
       </h3>
-      <p>
-        <span>$120</span>
-        <span>$160</span>
+
+      <p className="font-medium">
+        <span className="text-primary">${discountPrice}</span>{" "}
+        <span className="line-through text-[#7f7f7f]">${Props.price}</span>
       </p>
-      {/* </div> */}
+
+      <p>
+        <ReactStars
+          count={5}
+          value={Props.rating}
+          // onChange={ratingChanged}
+          // color1="red"
+          size={24}
+          color2={"#db4444"}
+          edit={false}
+        />
+      </p>
     </div>
   );
 }

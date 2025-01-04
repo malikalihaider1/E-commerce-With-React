@@ -4,8 +4,9 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Login from "./pages/Login";
 import Contact from "./pages/Contact"; // Import Contact correctly
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate} from "react-router-dom";
 import Footer from "./Components/footer";
+import Products from "./pages/products";
 
 function App() {
   const isLoggedIn = true; // Update this condition based on your actual authentication logic
@@ -20,6 +21,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact-us" element={<Contact />} />
+        <Route path="/products" element={<Products />} />
         <Route path="/not-found" element={<div>not founddddd</div>} />
 
         {/* Protected Route for Profile */}
