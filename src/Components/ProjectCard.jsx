@@ -3,8 +3,7 @@ import ReactStars from "react-stars";
 
 export default function ProductCard(Props) {
   const discountPrice = (
-    Props.price -
-    Props.discountPercentage * (Props.price / 100)
+    Props.price - Props.discountPercentage * (Props.price / 100)
   ).toFixed(2);
   console.log("discountPrice", discountPrice);
 
