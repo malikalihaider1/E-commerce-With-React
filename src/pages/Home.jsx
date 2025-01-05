@@ -24,7 +24,7 @@ export default function Home() {
       </div>
 
       <div className="flex gap-7">
-        <ProductCard />
+        <ProductCard price="5" discountPercentage={7}/>
         <ProductCard />
         <ProductCard />
         <ProductCard />
