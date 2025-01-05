@@ -1,4 +1,4 @@
-import img from "../assets/images/game.png";
+// import img from "../assets/images/game.png";
 import ReactStars from "react-stars";
 
 export default function ProductCard(Props) {
