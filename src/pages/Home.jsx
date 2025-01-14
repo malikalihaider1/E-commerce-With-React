@@ -1,20 +1,29 @@
-import { IoArrowUpOutline } from "react-icons/io5";
-import Slider from "../Components/Slider";
-import ProductCard from "../Components/ProjectCard";
-import SectionTitle from "../Components/SectionTitle";
 import Button from "../Components/Button";
 import NewArrivalGrid from "../Components/NewArrivalGrid";
+import ProductCard from "../Components/ProjectCard";
+import SectionTitle from "../Components/SectionTitle";
+import Slider from "../Components/Slider";
+import { FaArrowUp } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import useProducts from "../hooks/useProducts";
+import SpinLoader from "../assets/images/SpinLoader.svg";
 
 export default function Home() {
+  const { products, isLoading, error } = useProducts("limit=15&skip=35");
+
   return (
     <div className="container-x">
       <SectionTitle text="Today's" />
-      <h3 className="heading ">Flash Sales</h3>
-       <Slider></Slider>
-       <Link to={'/products'} className="font-medium rounded bg-primary centre text-white h-14 w-56 mx-auto my-16">View All Products</Link>
-       <SectionTitle text="Categories" />
-      <h3 className="heading ">Browse By Category</h3>
+      <h3 className="heading">Flash Sales</h3>
+
+      <Slider />
+
+      <Link to={'/products'} className="font-medium rounded bg-primary centre text-white h-14 w-56 mx-auto my-16">View All Products</Link>
+
+      <SectionTitle text="Categories" />
+
+      <h3 className="heading">Browse By Category</h3>
+
       {/* todo */}
       <SectionTitle text="This Month" />
 
@@ -22,27 +31,45 @@ export default function Home() {
         <h3 className="heading">Best Selling Products</h3>
         <Button className="h-14 w-40">View All</Button>
       </div>
-
       <div className="flex gap-7">
-        <ProductCard price="5" discountPercentage={7}/>
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        {isLoading ? <img className="m-auto" src={SpinLoader} alt="SpinLoader" /> : ""}
+        {products?.slice(0, 4)?.map((item) => (
+          <ProductCard
+            id={item.id}
+            image={item.thumbnail}
+            name={item.title}
+            price={item.price}
+            discountPercentage={item.discountPercentage}
+            rating={item.rating}
+          />
+        ))}
       </div>
 
       <SectionTitle text="Our Products" />
-      <h3 className="heading capitalize">explore our products</h3>
+      <div className="flex gap-7">
+        {isLoading ? <img className="m-auto" src={SpinLoader} alt="SpinLoader" /> : ""}
+        {products?.slice(4, 8)?.map((item) => (
+          <ProductCard
+            id={item.id}
+            image={item.thumbnail}
+            name={item.title}
+            price={item.price}
+            discountPercentage={item.discountPercentage}
+            rating={item.rating}
+          />
+        ))}
+      </div>
       <SectionTitle text="Featured" />
-      <h3 className="heading">New Arrival</h3>
-      <NewArrivalGrid className="w-" />
-      {/* <br /> */}
+      <h3 className="heading">new arrival</h3>
+
+      <NewArrivalGrid />
+        
       <a
         href="#top"
-        className="w-12 h-12 bg-gray-200 rounded-full block text-2xl centre ml-auto"
+        className="my-5 w-12 h-12 bg-gray-200 rounded-full block center text-2xl ml-auto"
       >
-        <IoArrowUpOutline />
+        <FaArrowUp />
       </a>
-      <br />
     </div>
   );
 }

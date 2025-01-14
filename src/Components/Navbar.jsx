@@ -19,7 +19,7 @@ export default function Navbar() {
   const [isHamburgerOpen, setIsHamburderOpen] = useState(false);
   const isLoggedIn = false;
   const navLinkStyle =
-    "capitalize hover:underline cursor-pointer hover:text-primary";
+  "S_Underline relative inline-block w-fit after:content-[''] after:bg-primary after:absolute after:h-[2px] after:transition-all after:duration-300 after:left-0 after:w-0 hover:after:w-full after:-bottom-1 capitalize cursor-pointer hover:text-primary";
 
   return (
     <div className="container-x h-28 shadow-md relative flex justify-between items-center">
@@ -35,7 +35,7 @@ export default function Navbar() {
         <CiSearch className="text-3xl" />
       </div>
       {/* desktop navbar */}
-      <ul className="hidden md:flex gap-3">
+      <ul className=" hidden md:flex gap-3">
         {links.map((item, i) => (
           <li className={navLinkStyle} key={i}>
             <Link to={item.link}>{item.title}</Link>

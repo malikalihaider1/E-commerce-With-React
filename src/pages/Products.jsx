@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ProductCard from "../Components/ProjectCard";
+import SpinLoader from "../assets/images/SpinLoader.svg";
 
 export default function Products() {
-  const API_KEY = "https://dummyjson.com/products";
+  const API_KEY = "https://dummyjson.com/products?";
 
   const [products, setProducts] = useState(null);
 
@@ -45,10 +46,10 @@ export default function Products() {
         placeholder="Search your product"
       />
 
-      {products === null ? "Loading...." : null}
+      {products === null ? <img className="m-auto" src={SpinLoader} alt="SpinLoader" /> : null}
 
       <div className="flex flex-wrap justify-center gap-4">
-        {searchKaResult.length === 0 ? "product not found" : ""}
+        {/* {searchKaResult.length === 0 ? "product not found" : ""} */}
 
         {searchKaResult?.map((item) => (
           <ProductCard
