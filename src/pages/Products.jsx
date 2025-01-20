@@ -2,9 +2,13 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ProductCard from "../Components/ProjectCard";
 import SpinLoader from "../assets/images/SpinLoader.svg";
+import { useSelector } from "react-redux";
 
 export default function Products() {
   const API_KEY = "https://dummyjson.com/products?";
+
+  const darkMode = useSelector((state) => state.darkMode.darkMode);
+
 
   const [products, setProducts] = useState(null);
 
@@ -22,8 +26,6 @@ export default function Products() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const searchProducts = () => {
-    
-
     const result = products?.filter((item) => {
       return item.title.toLowerCase().includes(searchTerm);
     });
@@ -34,7 +36,7 @@ export default function Products() {
   const searchKaResult = searchProducts();
 
   return (
-    <div className="container-x">
+    <div className={`container-x transition-colors duration-300 ${darkMode ?"bg-slate-700" : ""}`}>
       <input
         type="search"
         name="price"
@@ -46,14 +48,18 @@ export default function Products() {
         placeholder="Search your product"
       />
 
-      {products === null ? <img className="m-auto" src={SpinLoader} alt="SpinLoader" /> : null}
+      {products === null ? (
+        <img className={"m-auto "} src={SpinLoader} alt="SpinLoader" />
+      ) : null}
 
       <div className="flex flex-wrap justify-center gap-4">
         {/* {searchKaResult.length === 0 ? "product not found" : ""} */}
 
         {searchKaResult?.map((item) => (
           <ProductCard
+            darkMode = {darkMode}
             key={item.id}
+            id={item.id}
             image={item.thumbnail}
             name={item.title}
             price={item.price}

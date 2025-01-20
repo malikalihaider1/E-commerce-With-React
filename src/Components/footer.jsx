@@ -11,7 +11,7 @@ import { BsSend } from "react-icons/bs";
 
 export default function Footer() {
   return (
-    <div className="bg-black text-white min-h-96 ">
+    <footer className="bg-black text-white min-h-96 ">
       <div className="  container-x gap-3 flex flex-wrap justify-start md:justify-between items-baseline text-start pt-8 sm:pt-10 md:pt-12 lg:pt-[72px]">
         <div className="w-[calc(50%-32px)] sm:w-[calc(33%-16px)] md:w-[calc(25%-16px)] lg:w-[calc(20%-16px)] flex flex-col gap-2 sm:gap-[10px] lg:gap-3 xl:gap-4">
           <h2 className="font-bold md:text-xl lg:text-2xl ">Exclusive</h2>
@@ -78,6 +78,6 @@ export default function Footer() {
         <PiCopyright className="" />
         <p>Copyright Rimel 2022. All right reserved</p>
       </div>
-    </div>
+    </footer>
   );
 }

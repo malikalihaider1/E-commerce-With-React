@@ -14,12 +14,14 @@ import {
 } from "swiper/modules";
 import ProductCard from "./ProjectCard";
 import useProducts from "../hooks/useProducts";
+import { Link } from "react-router";
 
 export default function Slider() {
   const { products, isLoading, error } = useProducts("limit=5&skip=30");
 
   return (
     <div>
+      {/* <Link to={}> */}
       {isLoading ? <img className="m-auto" src={SpinLoader} alt="SpinLoader" /> : ""}
       {error ? <img className="m-auto" src={shoppingNotFound} alt="SpinLoader" /> : ""}
       
@@ -48,6 +50,7 @@ export default function Slider() {
           </SwiperSlide>
         ))}
       </Swiper>
+      {/* </Link> */}
     </div>
   );
 }
