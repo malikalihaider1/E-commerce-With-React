@@ -22,9 +22,17 @@ export default function Slider() {
   return (
     <div>
       {/* <Link to={}> */}
-      {isLoading ? <img className="m-auto" src={SpinLoader} alt="SpinLoader" /> : ""}
-      {error ? <img className="m-auto" src={shoppingNotFound} alt="SpinLoader" /> : ""}
-      
+      {isLoading ? (
+        <img className="m-auto" src={SpinLoader} alt="SpinLoader" />
+      ) : (
+        ""
+      )}
+      {error ? (
+        <img className="m-auto" src={shoppingNotFound} alt="SpinLoader" />
+      ) : (
+        ""
+      )}
+
       <Swiper
         spaceBetween={50}
         slidesPerView={3}

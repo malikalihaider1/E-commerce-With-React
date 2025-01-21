@@ -9,7 +9,6 @@ export default function Products() {
 
   const darkMode = useSelector((state) => state.darkMode.darkMode);
 
-
   const [products, setProducts] = useState(null);
 
   const getProductData = async () => {
@@ -36,7 +35,9 @@ export default function Products() {
   const searchKaResult = searchProducts();
 
   return (
-    <div className={`container-x transition-colors duration-300 ${darkMode ?"bg-slate-700" : ""}`}>
+    <div
+      className={`container-x transition-colors duration-300 ${darkMode ? "bg-slate-700" : ""}`}
+    >
       <input
         type="search"
         name="price"
@@ -57,7 +58,7 @@ export default function Products() {
 
         {searchKaResult?.map((item) => (
           <ProductCard
-            darkMode = {darkMode}
+            darkMode={darkMode}
             key={item.id}
             id={item.id}
             image={item.thumbnail}

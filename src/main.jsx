@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import { Provider } from "react-redux";
 import { store } from "./store/store.js";
-import { Toaster } from 'react-hot-toast';
+import { Toaster } from "react-hot-toast";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -19,5 +19,5 @@ createRoot(document.getElementById("root")).render(
         <Toaster />
       </BrowserRouter>
     </Provider>
-  </StrictMode>
+  </StrictMode>,
 );

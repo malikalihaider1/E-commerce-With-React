@@ -12,6 +12,7 @@ import { FaMoon } from "react-icons/fa6";
 import { IoSunny } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../store/darkModeSlice";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const links = [
   { title: "Home", link: "/home" },
@@ -20,6 +21,9 @@ const links = [
 ];
 
 export default function Navbar() {
+  const navigate = useNavigate();
+  let [searchParams] = useSearchParams();
+
   const [isHamburgerOpen, setIsHamburderOpen] = useState(false);
   const isLoggedIn = true;
   const darkMode = useSelector((state) => state.darkMode.darkMode);
@@ -27,6 +31,16 @@ export default function Navbar() {
 
   const navLinkStyle =
     "gap-4 S_Underline relative inline-block w-fit after:content-[''] after:bg-primary after:absolute after:h-[2px] after:transition-all after:duration-300 after:left-0 after:w-0 hover:after:w-full after:-bottom-1 capitalize cursor-pointer hover:text-primary";
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+
+    const searchTerm = e?.target?.children?.[0]?.value;
+    if (!searchTerm) return;
+    console.log("value", searchTerm);
+
+    navigate(`/search?query=${searchTerm}`);
+  };
 
   return (
     <div
@@ -36,26 +50,38 @@ export default function Navbar() {
       } gap-5 h-20 sm:h-28 transition-colors duration-300 shadow-md relative flex justify-between items-center px-4 sm:px-8`}
     >
       {/* Logo */}
-      <img
-        src={text}
-        className="hidden md:block w-48 sm:w-72"
-        alt="Text Logo"
-      />
-      <img
-        src={truck}
-        className="block md:hidden w-[75px] sm:w-[95px]"
-        alt="Truck Logo"
-      />
+      <Link to={"/"}>
+        <img
+          src={text}
+          className="hidden md:block w-48 sm:w-72"
+          alt="Text Logo"
+        />
+      </Link>
+
+      <Link to={"/"}>
+        <img
+          src={truck}
+          className="block md:hidden w-[75px] sm:w-[95px]"
+          alt="Truck Logo"
+        />
+      </Link>
 
       {/* Search Box */}
-      <div className="flex w-48 md:w-60 px-4 h-10 rounded-[60px] items-center bg-[#f5f5f5]">
-        <input
-          type="search"
-          className="outline-none bg-transparent text-sm w-full"
-          placeholder="What are you looking for?"
-        />
-        <CiSearch className="text-2xl text-gray-500" />
-      </div>
+      <form
+  onSubmit={handleSearch}
+  className="flex w-48 md:w-60 px-4 h-10 rounded-[60px] items-center bg-[#f5f5f5] "
+>
+  <div className="flex bg-secondary color-black w-40 ml-3 sm:ml-8 lg:ml-0 sm:w-56 md:w-60 h-[30px] sm:h-9 justify-around items-center text-sm rounded px-4">
+    <input
+      type="search"
+      className="nav_input bg-transparent outline-none w-full dark:text-black"
+      placeholder="What are you looking for?"
+    />
+  </div>
+  <button type="submit">
+    <CiSearch className="text-xl sm:text-2xl font-extrabold text-black" />
+  </button>
+</form>
 
       {/* Hamburger Menu Button */}
       <button
@@ -85,9 +111,7 @@ export default function Navbar() {
 
       {/* Mobile Navbar */}
       {isHamburgerOpen && (
-        <ul
-          className="absolute top-20 sm:top-28 left-0 bg-red-400 w-full z-10 flex flex-col gap-3 p-4 md:hidden"
-        >
+        <ul className="absolute top-20 sm:top-28 left-0 bg-red-400 w-full z-10 flex flex-col gap-3 p-4 md:hidden">
           {links.map((item, i) => (
             <li className={navLinkStyle} key={i}>
               <Link

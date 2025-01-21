@@ -11,11 +11,12 @@ import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
 import { useState } from "react";
 import AddProduct from "./pages/AddProduct";
+import Search from "./pages/Search";
 
 function App() {
   // const [darkMode, setDarkMode] = useState(false);
   const isLoggedIn = false; // Update this condition based on your actual authentication logic
-  
+
   return (
     <>
       <Banner />
@@ -27,10 +28,19 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/not-found" element={<div><img className="m-auto" src={shoppingNotFound} alt="SpinLoader" /><p className="centre text-primary capitalize">not founddddd</p></div>} />
+        <Route
+          path="/not-found"
+          element={
+            <div>
+              <img className="m-auto" src={shoppingNotFound} alt="SpinLoader" />
+              <p className="centre text-primary capitalize">not founddddd</p>
+            </div>
+          }
+        />
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/product/add" element={<AddProduct />} />
-  
+        <Route path="/search" element={<Search />} />
+
         {/* Protected Route for Profile */}
         {isLoggedIn ? (
           <>

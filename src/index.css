@@ -1,63 +1,56 @@
-@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-*{
-    font-family: "Poppins", sans-serif;
-    --primary:#DB4444;
-    scroll-behavior: smooth;
+* {
+  font-family: "Poppins", sans-serif;
+  --primary: #db4444;
+  scroll-behavior: smooth;
 }
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.container-x{
-    margin-left: auto;
-    margin-right: auto;
-    max-width:1270px;
-    padding: 50px;
+.container-x {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1270px;
+  padding: 50px;
 }
 .S_Underline {
-    @apply after:absolute after:bottom-2 after:left-[2px] after:h-0.5 after:w-0 after:transition-all after:duration-[400ms] after:content-[''];
-  }
+  @apply after:absolute after:bottom-2 after:left-[2px] after:h-0.5 after:w-0 after:transition-all after:duration-[400ms] after:content-[''];
+}
 
-
-  
 .S_Underline:after {
-    position: absolute;
-    bottom: 0.5rem;
-    left: 2px;
-    height: 0.125rem;
-    width: 0;
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 0.4s;
-    --tw-content: "";
-    content: var(--tw-content);
-  }
+  position: absolute;
+  bottom: 0.5rem;
+  left: 2px;
+  height: 0.125rem;
+  width: 0;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.4s;
+  --tw-content: "";
+  content: var(--tw-content);
+}
 
 .my-custom-class {
-    border-radius: 50%;
+  border-radius: 50%;
 }
-.bdr{
-    border: 2px solid red;
+.bdr {
+  border: 2px solid red;
 }
 
-.centre{
-    /* color:var(--primary); */
-    /* display: flex;
+.centre {
+  /* color:var(--primary); */
+  /* display: flex;
     justify-content: center;
     align-items: center; */
 
-    @apply flex justify-center items-center; /*or you can also do this*/
+  @apply flex justify-center items-center; /*or you can also do this*/
 }
 
-
-.heading{
-    @apply font-semibold text-xl sm:text-4xl 
+.heading {
+  @apply font-semibold text-xl sm:text-4xl 
     
     /* font-size: 2.25rem 36px; */
-    /* line-height: 2.5rem 40px; */
-   
+    /* line-height: 2.5rem 40px; */;
 }
-
-
-

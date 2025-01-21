@@ -4,7 +4,8 @@
 // for error
 // import shoppingNotFound from '../assets/images/shoppingNotFound.svg'
 
-{/* <Audio
+{
+  /* <Audio
   height="80"
   width="80"
   radius="9"
@@ -12,6 +13,11 @@
   ariaLabel="three-dots-loading"
   wrapperStyle
   wrapperClass
-/>  */}
-{/* {isLoading ? <img className="m-auto" src={SpinLoader} alt="SpinLoader" /> : ""}*/}
-{/*  {error ? <img className="m-auto" src={shoppingNotFound} alt="SpinLoader" /> : ""} */}
+/>  */
+}
+{
+  /* {isLoading ? <img className="m-auto" src={SpinLoader} alt="SpinLoader" /> : ""}*/
+}
+{
+  /*  {error ? <img className="m-auto" src={shoppingNotFound} alt="SpinLoader" /> : ""} */
+}

@@ -21,7 +21,7 @@ export default function Login() {
           username: "emilys",
           password: "emilyspass",
         },
-        { withCredentials: true }
+        { withCredentials: true },
       );
 
       console.log("response ", response);
@@ -31,7 +31,9 @@ export default function Login() {
   };
 
   return (
-    <div className={`${darkMode ? "bg-slate-700" : ""} transition-colors duration-300 centre h-[calc(100vh-160px)]`}>
+    <div
+      className={`${darkMode ? "bg-slate-700" : ""} transition-colors duration-300 centre h-[calc(100vh-160px)]`}
+    >
       <form
         onSubmit={formSubmitHua}
         className="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col w-full"
@@ -67,7 +69,11 @@ export default function Login() {
           Login
         </button>
         <p className="text-xs text-gray-500 mt-3">
-        Don't have an account? <span className="font-bold cursor-pointer hover:text-primary"> Sign up</span>
+          Don't have an account?{" "}
+          <span className="font-bold cursor-pointer hover:text-primary">
+            {" "}
+            Sign up
+          </span>
         </p>
       </form>
     </div>
