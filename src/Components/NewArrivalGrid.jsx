@@ -5,10 +5,11 @@ import img4 from "../assets/images/perfume.png";
 
 export default function NewArrivalGrid() {
   return (
-    <div className="main grid grid-cols-4 gap-8 grid-rows-2">
-      <div className="relative bg-[#0D0D0D] group text-gray-200 rounded col-span-2 row-span-2">
+    <div className="main grid grid-cols-1 md:grid-cols-4 gap-8 md:grid-rows-2">
+      {/* PlayStation 5 Section */}
+      <div className="relative bg-[#0D0D0D] group text-gray-200 rounded md:col-span-2 md:row-span-2">
         <img
-          className=" w-full h-full group-hover:scale-90 transition duration-300 object-contain"
+          className="w-full h-full group-hover:scale-90 transition duration-300 object-contain"
           src={img1}
           alt="ps5 image"
         />
@@ -17,8 +18,8 @@ export default function NewArrivalGrid() {
           <h3 className="S_Underline relative inline-block w-fit after:bg-white group-hover:after:left-0 after:-bottom-1 group-hover:after:w-[100%] font-semibold text-2xl">
             PlayStation 5
           </h3>
-          <p className="w-3/5 line-clamp-3">
-            lack and White version of the PS5 coming out on sale.
+          <p className="w-full md:w-3/5 line-clamp-3">
+            Black and White version of the PS5 coming out on sale.
           </p>
           <a
             className="underline hover:decoration-gray-500 transition-colors duration-300"
@@ -29,9 +30,10 @@ export default function NewArrivalGrid() {
         </div>
       </div>
 
-      <div className="relative bg-[#0D0D0D] group text-gray-200 rounded col-span-2">
+      {/* Woman's Collection Section */}
+      <div className="relative bg-[#0D0D0D] group text-gray-200 rounded md:col-span-2">
         <img
-          className=" w-full object-contain group-hover:scale-95 transition duration-300"
+          className="w-full object-contain group-hover:scale-95 transition duration-300"
           src={img2}
           alt="baji image"
         />
@@ -40,17 +42,19 @@ export default function NewArrivalGrid() {
           <h3 className="S_Underline relative inline-block w-fit after:bg-white group-hover:after:left-0 after:-bottom-1 group-hover:after:w-[100%] font-semi text-2xl">
             Woman's Collection
           </h3>
-          <p className="w-3/5 line-clamp-3">
+          <p className="w-full md:w-3/5 line-clamp-3">
             Featured woman collections that give you another vibe.
           </p>
           <a
             href="#"
-            className=" underline  hover:decoration-gray-500 transition-colors duration-300"
+            className="underline hover:decoration-gray-500 transition-colors duration-300"
           >
             Shop Now
           </a>
         </div>
       </div>
+
+      {/* Speakers Section */}
       <div className="bg-[#0D0D0D] relative group text-gray-200 rounded">
         <img
           className="object-contain group-hover:scale-90 transition duration-300 h-full w-full"
@@ -68,8 +72,10 @@ export default function NewArrivalGrid() {
           >
             Shop Now
           </a>
-        </div>{" "}
+        </div>
       </div>
+
+      {/* Perfume Section */}
       <div className="bg-[#0D0D0D] group-hover:scale-110 transition duration-300 relative group text-gray-200 rounded">
         <img
           className="object-contain group-hover:scale-90 transition duration-300 h-full w-full"
@@ -87,7 +93,7 @@ export default function NewArrivalGrid() {
           >
             Shop Now
           </a>
-        </div>{" "}
+        </div>
       </div>
     </div>
   );

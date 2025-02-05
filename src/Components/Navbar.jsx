@@ -24,7 +24,7 @@ export default function Navbar() {
   const navigate = useNavigate();
   let [searchParams] = useSearchParams();
 
-  const [isHamburgerOpen, setIsHamburderOpen] = useState(false);
+  const [isHamburgerOpen, setIsHamburgerOpen] = useState(false); // Fixed typo
   const isLoggedIn = true;
   const darkMode = useSelector((state) => state.darkMode.darkMode);
   const dispatch = useDispatch();
@@ -45,15 +45,13 @@ export default function Navbar() {
   return (
     <div
       id="top"
-      className={`container-x ${
-        darkMode ? "bg-slate-700 text-white" : "bg-white text-gray-800"
-      } gap-5 h-20 sm:h-28 transition-colors duration-300 shadow-md relative flex justify-between items-center px-4 sm:px-8`}
+      className={`container-x ${darkMode ? "bg-slate-700 text-white" : "bg-white text-gray-800"} gap-5 h-20 sm:h-28 transition-colors duration-300 shadow-md relative flex justify-between items-center px-4 sm:px-8`}
     >
       {/* Logo */}
       <Link to={"/"}>
         <img
           src={text}
-          className="hidden md:block w-48 sm:w-72"
+          className="hidden md:block w-48 sm:w-72" // Visible on medium screens and above
           alt="Text Logo"
         />
       </Link>
@@ -61,31 +59,31 @@ export default function Navbar() {
       <Link to={"/"}>
         <img
           src={truck}
-          className="block md:hidden w-[75px] sm:w-[95px]"
+          className="block sm:hidden w-[180px] mx-auto" // Adjust for mobile, medium, and large screens
           alt="Truck Logo"
         />
       </Link>
 
       {/* Search Box */}
       <form
-  onSubmit={handleSearch}
-  className="flex w-48 md:w-60 px-4 h-10 rounded-[60px] items-center bg-[#f5f5f5] "
->
-  <div className="flex bg-secondary color-black w-40 ml-3 sm:ml-8 lg:ml-0 sm:w-56 md:w-60 h-[30px] sm:h-9 justify-around items-center text-sm rounded px-4">
-    <input
-      type="search"
-      className="nav_input bg-transparent outline-none w-full dark:text-black"
-      placeholder="What are you looking for?"
-    />
-  </div>
-  <button type="submit">
-    <CiSearch className="text-xl sm:text-2xl font-extrabold text-black" />
-  </button>
-</form>
+        onSubmit={handleSearch}
+        className="flex w-full md:w-60 px-4 h-10 rounded-[60px] items-center bg-[#f5f5f5] mt-2 sm:mt-0"
+      >
+        <div className="flex w-full justify-between items-center text-sm rounded px-4">
+          <input
+            type="search"
+            className="nav_input bg-transparent outline-none w-full dark:text-black"
+            placeholder="What are you looking for?"
+          />
+        </div>
+        <button type="submit">
+          <CiSearch className="text-xl sm:text-2xl font-extrabold text-black" />
+        </button>
+      </form>
 
       {/* Hamburger Menu Button */}
       <button
-        onClick={() => setIsHamburderOpen(!isHamburgerOpen)}
+        onClick={() => setIsHamburgerOpen(!isHamburgerOpen)}
         className="md:hidden order-1 text-3xl"
       >
         {isHamburgerOpen ? <IoCloseCircleOutline /> : <IoMenu />}
@@ -93,9 +91,7 @@ export default function Navbar() {
 
       {/* Desktop Navbar */}
       <ul
-        className={`hidden md:flex items-center  gap-4 lg:gap-6 ${
-          darkMode ? "text-white" : "text-gray-800"
-        }`}
+        className={`hidden md:flex items-center gap-4 lg:gap-6 ${darkMode ? "text-white" : "text-gray-800"}`}
       >
         {links.map((item, i) => (
           <li className={navLinkStyle} key={i}>
@@ -115,7 +111,7 @@ export default function Navbar() {
           {links.map((item, i) => (
             <li className={navLinkStyle} key={i}>
               <Link
-                onClick={() => setIsHamburderOpen(false)}
+                onClick={() => setIsHamburgerOpen(false)} // Corrected state name
                 to={item.link}
                 className="text-white"
               >
@@ -126,7 +122,7 @@ export default function Navbar() {
           {!isLoggedIn && (
             <li className={navLinkStyle}>
               <Link
-                onClick={() => setIsHamburderOpen(false)}
+                onClick={() => setIsHamburgerOpen(false)}
                 to="/login"
                 className="text-white"
               >
@@ -143,16 +139,15 @@ export default function Navbar() {
           onClick={() => {
             dispatch(toggleDarkMode());
           }}
-          className=""
         >
           {darkMode ? <IoSunny /> : <FaMoon />}
         </button>
-        {isLoggedIn ? (
+        {isLoggedIn && (
           <>
             <IoMdHeart />
             <IoCart />
           </>
-        ) : null}
+        )}
         <Link
           to="/profile"
           className="bg-primary rounded-full overflow-hidden h-8 w-8 flex items-center justify-center text-base text-white"

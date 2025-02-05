@@ -14,33 +14,47 @@ import {
 } from "swiper/modules";
 import ProductCard from "./ProjectCard";
 import useProducts from "../hooks/useProducts";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 export default function Slider() {
   const { products, isLoading, error } = useProducts("limit=5&skip=30");
 
   return (
-    <div>
-      {/* <Link to={}> */}
+    <div className="px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20">
+      {/* Loading and Error States */}
       {isLoading ? (
         <img className="m-auto" src={SpinLoader} alt="SpinLoader" />
-      ) : (
-        ""
-      )}
+      ) : null}
       {error ? (
-        <img className="m-auto" src={shoppingNotFound} alt="SpinLoader" />
-      ) : (
-        ""
-      )}
+        <img className="m-auto" src={shoppingNotFound} alt="Error" />
+      ) : null}
 
+      {/* Swiper Slider */}
       <Swiper
-        spaceBetween={50}
-        slidesPerView={3}
+        spaceBetween={10}
         modules={[Navigation, Pagination, Scrollbar, Autoplay, A11y]}
         autoplay={{ delay: 2000, pauseOnMouseEnter: true }}
         pagination={{ clickable: true }}
         navigation
         scrollbar={{ draggable: true }}
+        breakpoints={{
+          320: {
+            slidesPerView: 1, // 1 slide per view on small screens
+            spaceBetween: 10,
+          },
+          480: {
+            slidesPerView: 2, // 2 slides per view on medium screens
+            spaceBetween: 15,
+          },
+          768: {
+            slidesPerView: 3, // 3 slides per view on large tablets
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 4, // 4 slides per view on desktop screens
+            spaceBetween: 30,
+          },
+        }}
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
       >
@@ -58,7 +72,6 @@ export default function Slider() {
           </SwiperSlide>
         ))}
       </Swiper>
-      {/* </Link> */}
     </div>
   );
 }
